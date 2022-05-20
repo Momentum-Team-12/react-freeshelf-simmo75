@@ -114,11 +114,12 @@ function App() {
           <h2>{book.author}</h2>
           <p>{book.url}</p>
           <p>{book.shortDescription}</p>
-          <p>{book.coverImageUrl}</p>
+          <div className="image-holder">
+          <img src={book.coverImageUrl} alt={book.title}></img>
+          </div>
           <p>{book.publisher}</p>
           <p>{book.publicationDate}</p>
           <p>{book.detailedDescription}</p>
-
         </div>
       ))}
     </div>
