@@ -118,37 +118,38 @@ function App() {
 function Book({ book }) {
   const [isExpanded, setIsExpanded] = useState(false);
   return (
-    <div>
-      <div className="App">
+    <div className="App">
+
+      <div className="AllText">
+        
         <div className="basicInfo">
           <h1>{book.title}</h1>
           <h2>{book.author}</h2>
           <p>{book.shortDescription}</p>
         </div>
 
-        <div className="image-holder">
-          <img src={book.coverImageUrl} alt={book.title}></img>
+        <button
+          onClick={() => {
+            setIsExpanded(!isExpanded);
+          }}
+        >
+          {isExpanded ? "Less Information" : "More Information"}
+        </button>
+        <div className="moreInfo">
+          {isExpanded && (
+            <>
+              <p>
+                <a href={book.url}>{book.title}</a>
+              </p>
+              <p>{book.publisher}</p>
+              <p>{book.publicationDate}</p>
+              <p>{book.detailedDescription}</p>
+            </>
+          )}
         </div>
       </div>
-
-      <button
-        onClick={() => {
-          setIsExpanded(!isExpanded);
-        }}
-      >
-        {isExpanded ? "Less Information" : "More Information"}
-      </button>
-      <div className="moreInfo">
-        {isExpanded && (
-          <>
-            <p>
-              <a href={book.url}>{book.title}</a>
-            </p>
-            <p>{book.publisher}</p>
-            <p>{book.publicationDate}</p>
-            <p>{book.detailedDescription}</p>
-          </>
-        )}
+      <div className="image-holder">
+        <img src={book.coverImageUrl} alt={book.title}></img>
       </div>
     </div>
   );
