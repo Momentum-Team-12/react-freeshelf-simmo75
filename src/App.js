@@ -119,9 +119,7 @@ function Book({ book }) {
   const [isExpanded, setIsExpanded] = useState(false);
   return (
     <div className="App">
-
       <div className="AllText">
-        
         <div className="basicInfo">
           <h1>{book.title}</h1>
           <h2>{book.author}</h2>
@@ -141,9 +139,10 @@ function Book({ book }) {
               <p>
                 <a href={book.url}>{book.title}</a>
               </p>
-              <p>{book.publisher}</p>
-              <p>{book.publicationDate}</p>
-              <p>{book.detailedDescription}</p>
+              <p>Publisher: {book.publisher}</p>
+              <p>Publication Date: {book.publicationDate}</p>
+              <p>Description:</p>
+              {book.detailedDescription}
             </>
           )}
         </div>
